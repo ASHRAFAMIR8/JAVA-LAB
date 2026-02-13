@@ -1,0 +1,53 @@
+//write the full  java program to calculate the grade of any three differnt subject,
+//by using scanner of interface
+
+ import java.util.Scanner;
+
+// Interface
+interface GradeCalculator {
+    void calculateGrade(float m1, float m2, float m3);
+}
+
+// Class implementing interface
+class Student implements GradeCalculator {
+
+    public void calculateGrade(float m1, float m2, float m3) {
+        float avg = (m1 + m2 + m3) / 3;
+        char grade;
+
+        if (avg >= 90)
+            grade = 'A';
+        else if (avg >= 75)
+            grade = 'B';
+        else if (avg >= 60)
+            grade = 'C';
+        else if (avg >= 40)
+            grade = 'D';
+        else
+            grade = 'F';
+
+        System.out.println("Average Marks: " + avg);
+        System.out.println("Grade: " + grade);
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter marks of Subject 1: ");
+        float m1 = sc.nextFloat();
+
+        System.out.print("Enter marks of Subject 2: ");
+        float m2 = sc.nextFloat();
+
+        System.out.print("Enter marks of Subject 3: ");
+        float m3 = sc.nextFloat();
+
+        Student s = new Student();
+        s.calculateGrade(m1, m2, m3);
+
+        sc.close();
+    }
+}
